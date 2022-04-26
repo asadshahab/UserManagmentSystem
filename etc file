@@ -1,0 +1,69 @@
+user_route.get('/register',auth.isLogout ,userController.loadRegister)
+user_route.post('/register', upload.single('image'), userController.insertUser)
+user_route.get('/verify', userController.verifyMail)
+user_route.get('/login',auth.isLogout ,userController.loginLoad)
+user_route.post('/login',userController.verifyLogin)
+user_route.get('/home',auth.isLogin ,userController.loadHome)
+
+user_route.get('/logout', auth.isLogin,userController.userLogout)
+user_route.get('/forget', auth.isLogout, userController.forgetLoad)
+user_route.post('/forget', userController.forgetVerify)
+user_route.get('/forget-password', auth.isLogout, userController.forgetPasswordLoad)
+user_route.post('/forget-password', userController.resetPassword)
+user_route.get('/404', userController.forgetPasswordLoad)
+user_route.get('/verification', userController.verificationLoad)
+user_route.post('/verification', userController.sendVerificationLink)
+user_route.get('/edit', auth.isLogin, userController.editLoad)
+user_route.post('/edit',upload.single('image'),userController.updateProfile)
+
+
+module.exports= user_route;
+
+
+# Home Page Code
+
+<!-- 
+<% include ('../layouts/header.ejs')    %>
+
+<% 
+                                           if( typeof message!== 'undefined'){ 
+                                               %>
+                                               <p style="color:green;"> <%= token%> </p>
+                                            <%
+
+                                           }
+                                        
+                                        %>
+   
+
+<h1 class="mt-4">Dashboard</h1>
+
+
+<h1  style="display: flex; justify-content: center;">WELCOME <%= user.first_name %> </h1>
+
+<table  style="display: flex; justify-content: center;" >
+<tr>
+    <td> <img src="userimages/<%= user.image  %>" width="100px" height="100px"  alt="<%=user.image %>" ><br><br><br></td>  
+</tr>
+<tr>
+    <td> E-mail :</td>
+    <td> <%= user.email %> </td>
+</tr>
+<tr>
+    <td> Contact.Num : </td>
+    <td>  <%= user.mobile %> </td>
+</tr>
+</table>
+
+<button  style="margin-left: 600px; margin-bottom: 5px; background: blue; border-color: grey;" >   <a href="/edit?id=<%=user._id %>" style="list-style: none; text-decoration: none; color: white;"> Edit </a> </button>
+
+
+  <button  style="margin-left: 600px; background: blue;  border-color: grey;" >  <a href="/logout" style="list-style: none; text-decoration: none; color: white;" >Logout</a> </button>
+
+
+<% include ('../layouts/footer.ejs')    %> -->
+
+
+$set:{first_name:req.body.firstname, last_name:req.body.lastname, email:req.body.email, mobile:req.body.mno }
+
+

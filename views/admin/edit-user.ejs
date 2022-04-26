@@ -1,0 +1,37 @@
+<% include ('../layouts/header.ejs')    %>
+<div class="container" style="display: flex; justify-content: center; margin-top: 10px;" >
+
+    
+
+<form action="" method="post" enctype="multipart/form-data">
+    <h1> Update User</h1>
+<img src="userImages/<%= user.image%>   " width= "100px" height="100px" alt="<%= user.image%>" >
+
+    <input type="file" name="image">
+    <br><br>
+    <input type="hidden" name="user_id" value="<%= user._id%>" >
+    <br><br>
+    <label>First name:</label>
+    <input type="text" name="firstname" value=" <%= user.first_name%>" placeholder="First name" required> 
+    <br><br>
+
+    <label>Last name:</label>
+    <input type="text" name="lastname" value=" <%= user.last_name%>" placeholder="Last Name" required> 
+    <br><br>
+    <label>E-mail:</label>
+    <input type="text" name="email"  value="<%= user.email%>" placeholder="Enter email" required >
+    <br><br>
+    <label>Mobile Num:</label>
+    <input type="text" name="mno"  value="<%= user.mobile%>" placeholder="Enter Number" required >
+    <br><br>
+    <input type="submit" value="Update User" >
+
+    <br><br>
+    
+</form>
+
+</div>
+
+<div class="small" style="display: flex; justify-content: center; margin-top: 10px;"> <button><a href="/admin/dashboard"> Back to DasheBoard</a> </button></div>
+
+<% include ('../layouts/footer.ejs')    %>

@@ -1,0 +1,38 @@
+
+
+<% include ('../layouts/header.ejs')    %>
+
+<h1 style="display: flex; justify-content: center;"> Welcome at Admin Profile  </h1>
+
+
+
+<table  style="display: flex; justify-content: center;">
+
+    <tr>
+        <td>
+            <img src="/userimages/<%= admin.image %>" alt="<%= admin.image %>" width="70px" height="70px">
+        </td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><%= admin.first_name %></td>
+    </tr>
+       
+    <tr>
+        <td>E-mail</td>
+        <td><%= admin.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile Num</td>
+        <td><%= admin.mobile %></td>
+    </tr>
+
+</table>
+
+
+
+<button  style="margin-left: 600px; margin-bottom: 5px; background: blue; border-color: grey;" >   <a href="/admin/dashboard" style="list-style: none; text-decoration: none; color: white;"> DashBoard </a> </button>
+
+<button style="margin-left: 600px; background: blue;  border-color: grey;" ><a    style="list-style: none; text-decoration: none; color: white;"   href="/admin/logout">Logout</a> </button>
+
+<% include ('../layouts/footer.ejs')    %>

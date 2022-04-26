@@ -1,0 +1,43 @@
+
+<!-- <h1 style="display: flex; justify-content: center;" >Welcome at Home</h1> -->
+
+
+<% include ('../layouts/header.ejs')    %>
+
+<% 
+                                           if( typeof message!== 'undefined'){ 
+                                               %>
+                                               <p style="color:green;"> <%= token%> </p>
+                                            <%
+
+                                           }
+                                        
+                                        %>
+   
+
+
+
+
+<h1  style="display: flex; justify-content: center;">WELCOME <%= user.first_name %> </h1>
+
+<table  style="display: flex; justify-content: center;" >
+<tr>
+    <td> <img src="userimages/<%= user.image  %>" width="100px" height="100px"  alt="<%=user.image %>" ><br><br><br></td>  
+</tr>
+<tr>
+    <td> E-mail :</td>
+    <td> <%= user.email %> </td>
+</tr>
+<tr>
+    <td> Contact.Num : </td>
+    <td>  <%= user.mobile %> </td>
+</tr>
+</table>
+
+<button  style="margin-left: 600px; margin-bottom: 5px; background: blue; border-color: grey;" >   <a href="/edit?id=<%=user._id %>" style="list-style: none; text-decoration: none; color: white;"> Edit </a> </button>
+
+
+  <button  style="margin-left: 600px; background: blue;  border-color: grey;" >  <a href="/logout" style="list-style: none; text-decoration: none; color: white;" >Logout</a> </button>
+
+
+<% include ('../layouts/footer.ejs')    %>
